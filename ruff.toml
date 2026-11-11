@@ -1,0 +1,7 @@
+# Base for Python SERVICEs.  Extend it from the SERVICE's own ruff.toml:
+#   extend = "../../node_modules/@magicians/config/ruff.toml"
+target-version = "py312"
+line-length = 100
+
+[lint]
+extend-select = ["I", "UP", "B", "SIM"]

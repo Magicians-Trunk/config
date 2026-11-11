@@ -1,0 +1,83 @@
+{
+  "name": "@magicians/config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "packageManager": "pnpm@11.13.1",
+  "description": "Shared TypeScript, Oxlint, Oxfmt, Vitest and Python tooling config, with the SERVICE boundary rule.",
+  "exports": {
+    "./tsconfig.json": "./tsconfig.base.json",
+    "./lint": {
+      "types": "./dist/lint.d.ts",
+      "default": "./dist/lint.js"
+    },
+    "./fmt": {
+      "types": "./dist/fmt.d.ts",
+      "default": "./dist/fmt.js"
+    },
+    "./vitest": {
+      "types": "./dist/vitest.d.ts",
+      "default": "./dist/vitest.js"
+    },
+    "./oxlint-plugin": {
+      "types": "./dist/src/oxlint-plugin.d.ts",
+      "default": "./dist/src/oxlint-plugin.js"
+    },
+    "./ruff.toml": "./ruff.toml",
+    "./pyrightconfig.json": "./pyrightconfig.json",
+    "./check-tasks": {
+      "types": "./dist/src/check-tasks.d.ts",
+      "default": "./dist/src/check-tasks.js"
+    }
+  },
+  "files": [
+    "dist",
+    "tsconfig.base.json",
+    "ruff.toml",
+    "pyrightconfig.json"
+  ],
+  "publishConfig": {
+    "exports": {
+      "./tsconfig.json": "./tsconfig.base.json",
+      "./lint": {
+        "types": "./dist/lint.d.ts",
+        "default": "./dist/lint.js"
+      },
+      "./fmt": {
+        "types": "./dist/fmt.d.ts",
+        "default": "./dist/fmt.js"
+      },
+      "./vitest": {
+        "types": "./dist/vitest.d.ts",
+        "default": "./dist/vitest.js"
+      },
+      "./oxlint-plugin": {
+        "types": "./dist/src/oxlint-plugin.d.ts",
+        "default": "./dist/src/oxlint-plugin.js"
+      },
+      "./ruff.toml": "./ruff.toml",
+      "./pyrightconfig.json": "./pyrightconfig.json",
+      "./check-tasks": {
+        "types": "./dist/src/check-tasks.d.ts",
+        "default": "./dist/src/check-tasks.js"
+      }
+    }
+  },
+  "scripts": {
+    "format": "vp fmt",
+    "prepack": "vp run build",
+    "slop:check": "aislop ci"
+  },
+  "peerDependencies": {
+    "@vitest/coverage-v8": "5.0.5",
+    "vite-plus": "1.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.1",
+    "@vitest/coverage-v8": "5.0.5",
+    "aislop": "0.18.1",
+    "typescript": "6.0.3",
+    "vite-plus": "1.4.0"
+  }
+}

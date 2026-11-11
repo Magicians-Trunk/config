@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "outDir": "./dist",
+    "rootDir": "."
+  },
+  "include": ["lint.ts", "fmt.ts", "vitest.ts", "src/**/*.ts"],
+  "exclude": ["src/**/*.test.ts"]
+}
