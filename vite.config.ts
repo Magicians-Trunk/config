@@ -5,7 +5,13 @@ import { checkTasks } from './src/check-tasks.ts';
 
 /** This package's checks, as Vite Tasks cached on what they read, and its lint and format rules. */
 export default defineConfig({
-  lint,
+  // Its own plugin by its source: by name it is the built one, which a fresh checkout doesn't have yet.
+  lint: {
+    ...lint,
+    jsPlugins: lint.jsPlugins.map((plugin) =>
+      plugin.name === 'magicians' ? { ...plugin, specifier: './src/oxlint-plugin.ts' } : plugin,
+    ),
+  },
   fmt,
   run: {
     tasks: checkTasks(import.meta.dirname, {
